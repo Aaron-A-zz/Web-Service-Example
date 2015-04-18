@@ -13,6 +13,7 @@
 		21E0EE681AE27216009491C3 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 21E0EE671AE27216009491C3 /* Images.xcassets */; };
 		21E0EE6B1AE27216009491C3 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 21E0EE691AE27216009491C3 /* LaunchScreen.xib */; };
 		21E0EE771AE27216009491C3 /* Web_Service_ExampleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21E0EE761AE27216009491C3 /* Web_Service_ExampleTests.swift */; };
+		21E0EE811AE27328009491C3 /* AFNetworking in Resources */ = {isa = PBXBuildFile; fileRef = 21E0EE801AE27328009491C3 /* AFNetworking */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +37,8 @@
 		21E0EE701AE27216009491C3 /* Web-Service-ExampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Web-Service-ExampleTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		21E0EE751AE27216009491C3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		21E0EE761AE27216009491C3 /* Web_Service_ExampleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Web_Service_ExampleTests.swift; sourceTree = "<group>"; };
+		21E0EE801AE27328009491C3 /* AFNetworking */ = {isa = PBXFileReference; lastKnownFileType = folder; path = AFNetworking; sourceTree = "<group>"; };
+		21E0EE821AE273C4009491C3 /* bridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = bridge.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +62,8 @@
 		21E0EE521AE27216009491C3 = {
 			isa = PBXGroup;
 			children = (
+				21E0EE821AE273C4009491C3 /* bridge.h */,
+				21E0EE801AE27328009491C3 /* AFNetworking */,
 				21E0EE5D1AE27216009491C3 /* Web-Service-Example */,
 				21E0EE731AE27216009491C3 /* Web-Service-ExampleTests */,
 				21E0EE5C1AE27216009491C3 /* Products */,
@@ -195,6 +200,7 @@
 				21E0EE661AE27216009491C3 /* Main.storyboard in Resources */,
 				21E0EE6B1AE27216009491C3 /* LaunchScreen.xib in Resources */,
 				21E0EE681AE27216009491C3 /* Images.xcassets in Resources */,
+				21E0EE811AE27328009491C3 /* AFNetworking in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -342,9 +348,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEFINES_MODULE = YES;
 				INFOPLIST_FILE = "Web-Service-Example/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = bridge.h;
 			};
 			name = Debug;
 		};
@@ -352,9 +360,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEFINES_MODULE = YES;
 				INFOPLIST_FILE = "Web-Service-Example/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = bridge.h;
 			};
 			name = Release;
 		};
