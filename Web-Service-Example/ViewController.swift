@@ -11,20 +11,34 @@ import UIKit
 class ViewController: UIViewController {
     
     @IBOutlet weak var myNameLabel: UILabel!
+    @IBOutlet weak var myWebsiteLabel: UILabel!
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.myNameLabel.text = ""
+        
+        //ActivityIndicatorView
+        var activityIndicatorView = UIActivityIndicatorView(activityIndicatorStyle: .Gray)
+        view.addSubview(activityIndicatorView)
+        activityIndicatorView.center = view.center
+        activityIndicatorView.startAnimating()
+        
+        
         let manager = AFHTTPRequestOperationManager()
         
         manager.GET( "http:/graph.facebook.com/bobdylan",
             parameters: nil,
             success: { (operation: AFHTTPRequestOperation!,responseObject: AnyObject!) in
-                println("Response: " + responseObject.description)
                 
+                println("Response: " + responseObject.description)
                 if let myName = responseObject["name"] as? String {
                     self.myNameLabel.text = myName
                 }
-                
+                if let myWebsite = responseObject["website"] as? String {
+                    self.myWebsiteLabel.text = myWebsite
+                }
+                activityIndicatorView.removeFromSuperview()
             },
             failure: { (operation: AFHTTPRequestOperation!,error: NSError!) in
                 println("Error: " + error.localizedDescription)
